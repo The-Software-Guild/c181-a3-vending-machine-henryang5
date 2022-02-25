@@ -9,4 +9,5 @@ public interface VendingMachineDao {
     List<Item> listAllItems() throws VendingMachinePersistenceException;
     Item addItem(Item item) throws VendingMachinePersistenceException;
     Item removeItem(Item item) throws VendingMachinePersistenceException;
+    void changeInventoryCount(Item item, int newCount) throws VendingMachinePersistenceException;
 }
