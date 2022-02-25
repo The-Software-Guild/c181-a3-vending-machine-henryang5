@@ -1,5 +1,7 @@
 package vendingmachine.ui;
 
+import java.math.BigDecimal;
+
 public interface UserIO {
     void print(String message);
 
@@ -20,4 +22,8 @@ public interface UserIO {
     long readLong(String prompt);
 
     long readLong(String prompt, long min, long max);
+
+    BigDecimal readBigDecimal(String prompt);
+
+    BigDecimal readBigDecimal(String prompt, BigDecimal min, BigDecimal max);
 }

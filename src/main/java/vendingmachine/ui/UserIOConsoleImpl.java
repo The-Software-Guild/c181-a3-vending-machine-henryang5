@@ -1,8 +1,9 @@
 package vendingmachine.ui;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class UserIOConsoleImpl {
+public class UserIOConsoleImpl implements UserIO {
     Scanner sc;
 
     public UserIOConsoleImpl()
@@ -89,6 +90,24 @@ public class UserIOConsoleImpl {
             num = sc.nextLong();
         }
         while(num < min || num > max);
+
+        return num;
+    }
+
+    @Override
+    public BigDecimal readBigDecimal(String prompt) {
+        System.out.println(prompt);
+        return new BigDecimal(sc.nextLine());
+    }
+
+    @Override
+    public BigDecimal readBigDecimal(String prompt, BigDecimal min, BigDecimal max) {
+        BigDecimal num;
+        do {
+            System.out.println(prompt);
+            num = new BigDecimal(sc.nextLine());
+        }
+        while(num.doubleValue() < min.doubleValue()|| num.doubleValue() > max.doubleValue());
 
         return num;
     }
