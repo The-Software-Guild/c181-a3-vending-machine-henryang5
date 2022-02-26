@@ -40,11 +40,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "VendingMachine{" +
-                "name='" + name + '\'' +
-                ", cost=" + cost +
-                ", numInventoryItems=" + numInventoryItems +
-                '}';
+        return name + ": " + "$" + cost;
     }
 
     @Override

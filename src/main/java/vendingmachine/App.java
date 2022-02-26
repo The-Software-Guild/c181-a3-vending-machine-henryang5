@@ -15,8 +15,7 @@ public class App {
         VendingMachineDao myDao = new VendingMachineDaoFileImpl();
         VendingMachineAudioDao myAuditDao = new VendingMachineAudioDaoFileImpl();
         VendingMachineService myService = new VendingMachineServiceImpl(myDao, myAuditDao);
-        VendingMachineController controller =
-                new VendingMachineController(myView, myService);
+        VendingMachineController controller = new VendingMachineController(myView, myService);
         controller.run();
     }
 }

@@ -107,7 +107,7 @@ public class UserIOConsoleImpl implements UserIO {
             System.out.println(prompt);
             num = new BigDecimal(sc.nextLine());
         }
-        while(num.doubleValue() < min.doubleValue()|| num.doubleValue() > max.doubleValue());
+        while(num.doubleValue() < min.doubleValue() || num.doubleValue() > max.doubleValue());
 
         return num;
     }

@@ -8,7 +8,7 @@ import java.util.*;
 
 public class VendingMachineDaoFileImpl implements VendingMachineDao{
     Map<String, Item> itemMap;
-    private static final String ITEM_FILE = System.getProperty("user.dir") + "items/.txt";
+    private static final String ITEM_FILE = System.getProperty("user.dir") + "/items.txt";
     private static final String DELIMITER = ",";
 
     public VendingMachineDaoFileImpl() throws VendingMachinePersistenceException {

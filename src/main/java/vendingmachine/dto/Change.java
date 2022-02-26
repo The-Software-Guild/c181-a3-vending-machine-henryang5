@@ -3,6 +3,7 @@ package vendingmachine.dto;
 import vendingmachine.service.VendingMachineInsufficientFundsException;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 public class Change {
@@ -13,12 +14,12 @@ public class Change {
         coinChangeMap = new HashMap<>();
     }
 
-    public Map<Coins, Integer> getChange(BigDecimal funds, BigDecimal price)
-    {
+    public Map<Coins, Integer> getChange(BigDecimal funds, BigDecimal price) throws VendingMachineInsufficientFundsException {
         BigDecimal changeAmount = funds.subtract(price);
+
         if(changeAmount.doubleValue() < 0)
         {
-             //throw new VendingMachineInsufficientFundsException();
+             throw new VendingMachineInsufficientFundsException("Not enough funds");
         }
         BigDecimal[] divRemArr;
 
