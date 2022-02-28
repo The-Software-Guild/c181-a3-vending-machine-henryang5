@@ -7,6 +7,7 @@ import vendingmachine.dto.Item;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class VendingMachineServiceImpl implements VendingMachineService {
     private VendingMachineDao dao;
@@ -28,9 +29,14 @@ public class VendingMachineServiceImpl implements VendingMachineService {
         return item;
     }
 
+
+    // lists all items with inventory count > 0
     @Override
     public List<Item> listAllItems() throws VendingMachinePersistenceException {
-        return dao.listAllItems();
+        return dao.listAllItems()
+                .stream()
+                .filter(item -> item.getNumInventoryItems() > 0)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -58,6 +64,7 @@ public class VendingMachineServiceImpl implements VendingMachineService {
         if(item.getCost().compareTo(totalFunds) > 0)
         {
             throw new VendingMachineInsufficientFundsException("Not enough funds in machine");
+
         }
         changeInventoryCount(item, item.getNumInventoryItems() - 1);
 

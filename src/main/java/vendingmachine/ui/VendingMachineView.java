@@ -26,9 +26,7 @@ public class VendingMachineView {
     {
         for(int i = 0; i < itemList.size(); i++)
         {
-            if(itemList.get(i).getNumInventoryItems() > 0) {
-                io.print(i + 1 + ": " + itemList.get(i));
-            }
+            io.print(i + 1 + ": " + itemList.get(i));
         }
     }
 

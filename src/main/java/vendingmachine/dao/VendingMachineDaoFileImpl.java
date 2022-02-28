@@ -95,5 +95,6 @@ public class VendingMachineDaoFileImpl implements VendingMachineDao{
     public void changeInventoryCount(Item item, int newCount) throws VendingMachinePersistenceException {
         item.setNumInventoryItems(newCount);
         writeFile();
+        readFile();
     }
 }

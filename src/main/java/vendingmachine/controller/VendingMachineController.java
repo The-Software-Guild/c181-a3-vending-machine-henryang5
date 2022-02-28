@@ -36,7 +36,7 @@ public class VendingMachineController {
                     start = false;
                 }
                 else {
-                    Item selectedItem = getItemSelected(operation - 1);
+                    Item selectedItem = getItemSelected(operation - 1);  // item menu list starts at 1, Index at 0.
                     BigDecimal newBalance = vendItem(selectedItem, balance);
                     balance = newBalance;
                 }
@@ -44,6 +44,7 @@ public class VendingMachineController {
         }
         catch(VendingMachinePersistenceException | VendingMachineInsufficientFundsException e)
         {
+            view.displayBalance(balance);
             view.displayErrorMessage(e.getMessage());
         }
     }

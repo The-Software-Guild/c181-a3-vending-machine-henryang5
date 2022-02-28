@@ -40,7 +40,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return name + ": " + "$" + cost;
+        return name + ": " + "$" + cost + ", Count: " + numInventoryItems;
     }
 
     @Override

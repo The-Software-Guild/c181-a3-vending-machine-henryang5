@@ -1,1 +1,41 @@
 2022-02-25T19:23:19.322434800 : Item Gum vended.
+2022-02-25T19:44:27.440318800 : Item Potato Chip vended.Number in Inventory: 8
+2022-02-25T19:48:09.048099800 : Item Snickers Bar vended.Number in Inventory: 1
+2022-02-25T19:48:25.785236300 : Item Snickers Bar vended.Number in Inventory: 0
+2022-02-25T19:53:13.096761700 : Item Mountain Dew vended.Number in Inventory: 1
+2022-02-25T19:55:12.043860 : Item Mountain Dew vended.Number in Inventory: 0
+2022-02-25T19:55:46.801843200 : Item Snickers Bar vended.Number in Inventory: 9
+2022-02-25T19:57:42.275906 : Item Snickers Bar vended.Number in Inventory: 8
+2022-02-25T19:58:29.308346 : Item Snickers Bar vended.Number in Inventory: 7
+2022-02-25T19:59:50.349264 : Item Snickers Bar vended.Number in Inventory: 6
+2022-02-25T20:01:13.904478400 : Item Snickers Bar vended.Number in Inventory: 5
+2022-02-25T20:04:24.574780 : Item Snickers Bar vended.Number in Inventory: 4
+2022-02-25T20:05:01.740836600 : Item Snickers Bar vended.Number in Inventory: 3
+2022-02-27T18:24:49.698473200 : Item Snickers Bar vended.Number in Inventory: 2
+2022-02-27T18:33:19.121647100 : Item Snickers Bar vended.Number in Inventory: 1
+2022-02-27T18:38:15.946029200 : Item Snickers Bar vended.Number in Inventory: 0
+2022-02-27T18:41:45.826699300 : Item Pepsi vended.Number in Inventory: 30
+2022-02-27T18:46:28.374910700 : Item Snickers Bar vended.Number in Inventory: -1
+2022-02-27T18:53:57.936302100 : Item Potato Chip vended.Number in Inventory: 7
+2022-02-27T18:55:28.819410600 : Item Mountain Dew vended.Number in Inventory: 9
+2022-02-27T18:56:38.686992 : Item Mountain Dew vended.Number in Inventory: 8
+2022-02-27T18:56:56.413106400 : Item Gum vended.Number in Inventory: 9
+2022-02-27T18:56:58.194631200 : Item Gum vended.Number in Inventory: 8
+2022-02-27T18:56:59.881960100 : Item Gum vended.Number in Inventory: 7
+2022-02-27T18:57:01.944621900 : Item Gum vended.Number in Inventory: 6
+2022-02-27T18:57:04.335641900 : Item Gum vended.Number in Inventory: 5
+2022-02-27T18:57:05.351412900 : Item Gum vended.Number in Inventory: 4
+2022-02-27T18:57:06.164040700 : Item Gum vended.Number in Inventory: 3
+2022-02-27T18:57:07.320268 : Item Gum vended.Number in Inventory: 2
+2022-02-27T18:57:25.839975500 : Item Mountain Dew vended.Number in Inventory: 7
+2022-02-27T18:57:44.607374500 : Item Potato Chip vended.Number in Inventory: 6
+2022-02-27T18:58:54.403515200 : Item Mountain Dew vended.Number in Inventory: 6
+2022-02-27T18:59:18.249002600 : Item Gum vended.Number in Inventory: 1
+2022-02-27T19:07:23.268530800 : Item Snickers Bar vended.Number in Inventory: 2
+2022-02-27T19:07:24.674786500 : Item Snickers Bar vended.Number in Inventory: 1
+2022-02-27T19:07:26.518828200 : Item Snickers Bar vended.Number in Inventory: 0
+2022-02-27T19:08:02.725399800 : Item Potato Chip vended.Number in Inventory: 5
+2022-02-27T19:08:07.991952800 : Item Potato Chip vended.Number in Inventory: 4
+2022-02-27T19:08:12.617110100 : Item Potato Chip vended.Number in Inventory: 3
+2022-02-27T19:08:15.898947100 : Item Pepsi vended.Number in Inventory: 11
+2022-02-27T19:08:17.664450100 : Item Pepsi vended.Number in Inventory: 10
