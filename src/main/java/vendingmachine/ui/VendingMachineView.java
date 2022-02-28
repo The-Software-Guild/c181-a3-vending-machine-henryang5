@@ -32,7 +32,7 @@ public class VendingMachineView {
 
     public int getMenuSelection()
     {
-        return io.readInt("Please select an item.", 0, 100);
+        return io.readInt("Please select an item. ", 0, 100);
     }
 
     public void displayQuitMessage()
@@ -43,7 +43,7 @@ public class VendingMachineView {
     public BigDecimal displayAndGetFunds()
     {
         io.print("====ADD FUNDS====");
-        return io.readBigDecimal("Enter funds to add: ", new BigDecimal(0), new BigDecimal(100));
+        return io.readBigDecimal("Enter funds to add ($0 - $100): ", new BigDecimal(0), new BigDecimal(100));
     }
 
     public void displayErrorMessage(String message)

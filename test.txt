@@ -1,6 +1,6 @@
 Snickers Bar,0.99,5
-Potato Chip,3.49,3
+Potato Chip,3.49,100
 Pepsi,1.99,10
-Cheetos,2.99,9
+Cheetos,2.99,0
 Mountain Dew,5.99,6
-Gum,0.49,10
+Gum,0.49,0

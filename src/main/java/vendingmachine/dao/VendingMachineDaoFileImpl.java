@@ -8,10 +8,17 @@ import java.util.*;
 
 public class VendingMachineDaoFileImpl implements VendingMachineDao{
     Map<String, Item> itemMap;
-    private static final String ITEM_FILE = System.getProperty("user.dir") + "/items.txt";
+    private final String ITEM_FILE;
     private static final String DELIMITER = ",";
 
     public VendingMachineDaoFileImpl() throws VendingMachinePersistenceException {
+        ITEM_FILE = System.getProperty("user.dir") + "/items.txt";
+        itemMap = new HashMap<>();
+        readFile();
+    }
+
+    public VendingMachineDaoFileImpl(String file) throws VendingMachinePersistenceException {
+        ITEM_FILE = System.getProperty("user.dir") + "/" + file;
         itemMap = new HashMap<>();
         readFile();
     }
