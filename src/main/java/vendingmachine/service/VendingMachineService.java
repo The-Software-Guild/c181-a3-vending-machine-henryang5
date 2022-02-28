@@ -15,5 +15,6 @@ public interface VendingMachineService {
     void changeInventoryCount(Item item, int newCount) throws VendingMachinePersistenceException;
     BigDecimal vendItem(BigDecimal totalFunds, Item item)
             throws VendingMachinePersistenceException,
-            VendingMachineInsufficientFundsException;
+            VendingMachineInsufficientFundsException,
+            VendingMachineNoItemInventoryException;
 }

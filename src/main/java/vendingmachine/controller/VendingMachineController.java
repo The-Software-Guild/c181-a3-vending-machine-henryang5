@@ -6,6 +6,7 @@ import vendingmachine.dto.Change;
 import vendingmachine.dto.Coins;
 import vendingmachine.dto.Item;
 import vendingmachine.service.VendingMachineInsufficientFundsException;
+import vendingmachine.service.VendingMachineNoItemInventoryException;
 import vendingmachine.service.VendingMachineService;
 import vendingmachine.ui.VendingMachineView;
 
@@ -42,7 +43,7 @@ public class VendingMachineController {
                 }
             }
         }
-        catch(VendingMachinePersistenceException | VendingMachineInsufficientFundsException e)
+        catch(VendingMachinePersistenceException | VendingMachineInsufficientFundsException | VendingMachineNoItemInventoryException e)
         {
             view.displayBalance(balance);
             view.displayErrorMessage(e.getMessage());
@@ -75,7 +76,7 @@ public class VendingMachineController {
         return service.listAllItems().get(index);
     }
 
-    private BigDecimal vendItem(Item item, BigDecimal balance) throws VendingMachineInsufficientFundsException, VendingMachinePersistenceException {
+    private BigDecimal vendItem(Item item, BigDecimal balance) throws VendingMachineInsufficientFundsException, VendingMachinePersistenceException, VendingMachineNoItemInventoryException {
         BigDecimal newBal = service.vendItem(balance, item);
         if(newBal.doubleValue() >= 0)
         {

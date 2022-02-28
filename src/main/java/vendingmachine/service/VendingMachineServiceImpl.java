@@ -60,16 +60,22 @@ public class VendingMachineServiceImpl implements VendingMachineService {
     }
 
     @Override
-    public BigDecimal vendItem(BigDecimal totalFunds, Item item) throws VendingMachinePersistenceException, VendingMachineInsufficientFundsException {
+    public BigDecimal vendItem(BigDecimal totalFunds, Item item) throws VendingMachinePersistenceException,
+            VendingMachineInsufficientFundsException, VendingMachineNoItemInventoryException {
         if(item.getCost().compareTo(totalFunds) > 0)
         {
             throw new VendingMachineInsufficientFundsException("Not enough funds in machine");
 
         }
-        changeInventoryCount(item, item.getNumInventoryItems() - 1);
-
-        auditDao.writeAuditEntry(
-                "Item " + item.getName() + " vended." + "Number in Inventory: " + item.getNumInventoryItems());
+        else if(item.getNumInventoryItems() <= 0)
+        {
+            throw new VendingMachineNoItemInventoryException("Item inventory is empty");
+        }
+        else {
+            changeInventoryCount(item, item.getNumInventoryItems() - 1);
+            auditDao.writeAuditEntry(
+                    "Item " + item.getName() + " vended." + "Number in Inventory: " + item.getNumInventoryItems());
+        }
         return totalFunds.subtract(item.getCost());
     }
 }
