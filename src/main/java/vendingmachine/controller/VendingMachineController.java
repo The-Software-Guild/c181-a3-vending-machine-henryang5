@@ -26,38 +26,80 @@ public class VendingMachineController {
 
     public void run()
     {
-        BigDecimal balance = addFunds();
+        BigDecimal balance = new BigDecimal(0.0);
         boolean start = true;
         try {
             while (start) {
-                printMenuShowBalance(balance);
-                int operation = getMenuSelection();
-                if (operation == 0) {
-                    quit();
-                    start = false;
-                }
-                else {
-                    Item selectedItem = getItemSelected(operation - 1);  // item menu list starts at 1, Index at 0.
-                    BigDecimal newBalance = vendItem(selectedItem, balance);
-                    balance = newBalance;
+                printMenu();
+                showBalance(balance);
+                String operation = getMenuSelection();
+                switch(operation) {
+                    case "q":  // quit
+                        quit();
+                        start = false;
+                        break;
+                    case "a":  // add funds
+                        balance = addFunds(balance);
+                        break;
+                    case "b": // vend item
+                        try {
+                            BigDecimal newBal = buyItem(balance);
+                            balance = newBal;
+                        }
+                        catch(VendingMachineInsufficientFundsException | VendingMachineNoItemInventoryException e)
+                        {
+                            view.displayBalance(balance);
+                            view.displayErrorMessage(e.getMessage());
+                        }
+                        break;
+                    default:
+                        unknownCommand();
                 }
             }
         }
-        catch(VendingMachinePersistenceException | VendingMachineInsufficientFundsException | VendingMachineNoItemInventoryException e)
+        catch(VendingMachinePersistenceException e)
         {
             view.displayBalance(balance);
             view.displayErrorMessage(e.getMessage());
         }
     }
 
-    private void printMenuShowBalance(BigDecimal bal) throws VendingMachinePersistenceException {
-        view.printMenu();
+    private void unknownCommand()
+    {
+        view.displayUnknownCommand();
+    }
+    private BigDecimal buyItem(BigDecimal balance) throws VendingMachinePersistenceException, VendingMachineInsufficientFundsException, VendingMachineNoItemInventoryException {
+        int selection;
+        do {
+            selection = view.getItemSelection();
+        } while(!isValidItem(selection));
+
+        Item selectedItem = getItemSelected(selection - 1);
+
+        BigDecimal newBalance = vendItem(selectedItem, balance);
+
+        return new BigDecimal(0 );
+    }
+
+    private boolean isValidItem(int selection) throws VendingMachinePersistenceException {
+        if(selection > service.listAllItems().size() || selection < 1) {
+            view.printInvalidItem();
+            return false;
+        }
+        return true;
+    }
+    private void printMenu() throws VendingMachinePersistenceException {
         List<Item> itemList = service.listAllItems();
         view.printAllItems(itemList);
+        view.printMenu();
+    }
+
+    private void showBalance(BigDecimal bal)
+    {
         view.displayBalance(bal);
     }
 
-    private int getMenuSelection() {
+    private String getMenuSelection() {
 
         return view.getMenuSelection();
     }
@@ -67,9 +109,9 @@ public class VendingMachineController {
         view.displayQuitMessage();
     }
 
-    private BigDecimal addFunds() {
+    private BigDecimal addFunds(BigDecimal balance) {
         BigDecimal funds = view.displayAndGetFunds();
-        return funds;
+        return funds.add(balance);
     }
 
     private Item getItemSelected(int index) throws VendingMachinePersistenceException {
@@ -86,5 +128,4 @@ public class VendingMachineController {
         }
         return newBal;
     }
-
 }
